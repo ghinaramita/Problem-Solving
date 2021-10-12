@@ -6,6 +6,7 @@ public class PlayerMouseController : MonoBehaviour
 {
     private Rigidbody2D playerRigidbody;
     public Camera mainCamera;
+    public ScoreController scoreController;
 
     // Header
     [Header("Ball Movement")]
@@ -39,6 +40,7 @@ public class PlayerMouseController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Box")
         {
+            scoreController.IncreaseCurrentScore(1);
             Destroy(collision.gameObject);
         }
     }
